@@ -1,0 +1,27 @@
+name: Comprobacion de Tokens
+
+on:
+  push:
+
+jobs:
+  comparar-tokens:
+    runs-on: self-hosted
+
+    steps:
+      - name: Comparar DEV_TOKEN
+        run: |
+          if [ "${{ secrets.DEV_TOKEN }}" == "$LOCAL_DEV_TOKEN" ]; then
+            echo "✅ Coinciden: DEV_TOKEN es igual."
+          else
+            echo "❌ No coinciden: DEV_TOKEN es diferente."
+            exit 1
+          fi
+
+      - name: Comparar PROD_TOKEN
+        run: |
+          if [ "${{ secrets.PROD_TOKEN }}" == "$LOCAL_PROD_TOKEN" ]; then
+            echo "✅ Coinciden: PROD_TOKEN es igual."
+          else
+            echo "❌ No coinciden: PROD_TOKEN es diferente."
+            exit 1
+          fi
