@@ -17,11 +17,3 @@ jobs:
             exit 1
           fi
 
-      - name: Comparar PROD_TOKEN
-        run: |
-          if [ "${{ secrets.PROD_TOKEN }}" == "$LOCAL_PROD_TOKEN" ]; then
-            echo "✅ Coinciden: PROD_TOKEN es igual."
-          else
-            echo "❌ No coinciden: PROD_TOKEN es diferente."
-            exit 1
-          fi
