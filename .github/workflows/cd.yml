@@ -40,8 +40,8 @@ jobs:
           TOKEN: ${{ secrets.PROD_TOKEN }}
         run: |
           if ($env:TOKEN -eq $env:LOCAL_PROD_TOKEN) {
-            Write-Host "CD: validacion de producción correcta — listo para desplegar"
+            Write-Host 'CD: validacion de produccion correcta - listo para desplegar'
           } else {
-            Write-Host "CD: validacion fallida"
+            Write-Host 'CD: validacion fallida'
             exit 1
           }
